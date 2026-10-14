@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>My Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Titan+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ICON SPRITE: apples + little doodles used all over the site. Colors come from the CSS palette. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="gp" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" style="fill:var(--senga-sengana)"/><rect width="6" height="12" fill="#FFF8E0" opacity=".3"/><rect width="12" height="6" fill="#FFF8E0" opacity=".3"/>
+    </pattern>
+    <path id="ab" d="M50 28C42 18 14 22 12 52C10 78 28 96 42 96C47 96 48 93 50 93C52 93 53 96 58 96C72 96 90 78 88 52C86 22 58 18 50 28Z"/>
+    <g id="sl"><path d="M50 28C50 20 52 12 58 5" stroke="#4a2420" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M55 17C60 3 77 3 84 10C77 24 62 25 55 17Z" style="fill:var(--tropicana)"/></g>
+  </defs>
+  <symbol id="apple-solid" viewBox="0 0 100 100"><use href="#ab" style="fill:var(--senga-sengana)"/><ellipse cx="29" cy="48" rx="5" ry="11" transform="rotate(-18 29 48)" fill="#fff" opacity=".55"/><use href="#sl"/></symbol>
+  <symbol id="apple-gingham" viewBox="0 0 100 100"><use href="#ab" fill="url(#gp)"/><use href="#sl"/></symbol>
+  <symbol id="apple-half" viewBox="0 0 100 100"><use href="#ab" style="fill:var(--senga-sengana)"/><use href="#ab" transform="translate(50 57) scale(.78) translate(-50 -57)" style="fill:var(--daisy-desi)"/><ellipse cx="43" cy="62" rx="3" ry="5" transform="rotate(-15 43 62)" fill="#4a2420"/><ellipse cx="57" cy="62" rx="3" ry="5" transform="rotate(15 57 62)" fill="#4a2420"/><use href="#sl"/></symbol>
+  <symbol id="flower" viewBox="0 0 40 40"><g style="fill:var(--mandarin)"><circle cx="20" cy="10" r="7"/><circle cx="29.5" cy="17" r="7"/><circle cx="26" cy="28" r="7"/><circle cx="14" cy="28" r="7"/><circle cx="10.5" cy="17" r="7"/></g><circle cx="20" cy="20" r="5" style="fill:var(--daisy-desi)"/></symbol>
+  <symbol id="ladybug" viewBox="0 0 40 40"><ellipse cx="20" cy="24" rx="14" ry="12" style="fill:var(--senga-sengana)"/><circle cx="20" cy="10" r="6" fill="#4a2420"/><path d="M20 13V36" stroke="#4a2420" stroke-width="1.6"/><g fill="#4a2420"><circle cx="13" cy="22" r="2.4"/><circle cx="27" cy="22" r="2.4"/><circle cx="15" cy="30" r="2.4"/><circle cx="25" cy="30" r="2.4"/></g></symbol>
+  <symbol id="sprout" viewBox="0 0 40 40"><path d="M20 38V20" stroke="#4a2420" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M20 22C8 22 6 10 8 8C20 8 22 14 20 22Z" style="fill:var(--kiwi-colada)"/><path d="M20 22C32 22 34 10 32 8C20 8 18 14 20 22Z" style="fill:var(--tropicana)"/></symbol>
+  <symbol id="clover" viewBox="0 0 40 40"><g style="fill:var(--tropicana)" opacity=".85"><circle cx="14" cy="14" r="7"/><circle cx="26" cy="14" r="7"/><circle cx="14" cy="26" r="7"/><circle cx="26" cy="26" r="7"/></g><path d="M20 20L26 38" stroke="#4a2420" stroke-width="2" fill="none"/></symbol>
+</svg>
+
+
+<!-- ===== MAIN PORTFOLIO (Parts 1, 2, 4, 5, 6) ===== -->
+<main id="portfolio">
+
+  <!-- QUICK NAVIGATION: edit, add or remove links freely -->
+  <nav class="top-nav" aria-label="Sections">
+    <a href="#welcome">Home</a><a href="#profile">Me</a><a href="#songs">Songs</a><a href="#games">Games</a><a href="#hobbies">Hobbies</a>
+  </nav>
+
+  <!-- PART 1: WELCOME -->
+  <section id="welcome" class="section hero">
+    <!-- BACKGROUND PAPERS: edit size, color, position and tilt in style.css (.pp1 ... .pp10) -->
+    <div class="bg-papers" aria-hidden="true">
+      <i class="paper p-lined pp1"></i><i class="paper p-grid pp2"></i><i class="paper p-note pp3"></i><i class="paper p-dotted pp4"></i><i class="paper p-orange pp5"></i>
+      <i class="paper p-lined pp6"></i><i class="paper p-grid pp7"></i><i class="paper p-note pp8"></i><i class="paper p-dotted pp9"></i><i class="paper p-orange pp10"></i>
+    </div>
+
+    <!-- HERO APPLES: change --w (size), --a (tilt) and position -->
+    <svg class="dec" style="--w:25vw;--a:-14deg;left:-6%;bottom:4%" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:20vw;--a:12deg;right:-4%;top:-3%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:13vw;--a:-8deg;right:14%;bottom:-2%" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+
+    <!-- BIG BACKGROUND STARS: edit colors/sizes/positions in style.css (.b1 ... .b9) -->
+    <div class="bg-stars" aria-hidden="true">
+      <i class="bgstar b1"></i><i class="bgstar b2"></i><i class="bgstar b3"></i><i class="bgstar b4"></i><i class="bgstar b5"></i>
+      <i class="bgstar b6"></i><i class="bgstar b7"></i><i class="bgstar b8"></i><i class="bgstar b9"></i><i class="bgstar b10"></i><i class="bgstar b11"></i><i class="bgstar b12"></i>
+    </div>
+    <span class="deco star s1" aria-hidden="true">★</span>
+    <span class="deco star s2" aria-hidden="true">✦</span>
+    <span class="deco dot d1" aria-hidden="true"></span>
+    <span class="deco dot d2" aria-hidden="true"></span>
+    <span class="deco sticker-free f1" aria-hidden="true">☁</span>
+    <span class="deco sticker-free f2" aria-hidden="true">♥</span>
+    <span class="deco sticker-free f3" aria-hidden="true">✎</span>
+    <span class="deco sticker-free f4" aria-hidden="true">☀</span>
+    <div class="banner">
+      <svg class="dec" style="--w:9vw;--a:14deg;top:-34px;right:-30px" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:8vw;--a:-12deg;bottom:-30px;left:-34px" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:4vw;top:15%;left:30%" aria-hidden="true"><use href="#sprout" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:3.6vw;--a:12deg;top:22%;right:15%" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:4.5vw;bottom:19%;left:9%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:3vw;--a:20deg;bottom:30%;right:8%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:3vw;top:30%;left:7%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+      <h1 class="logo-title" aria-label="Welcome To My portfolio">
+        <span class="logo-line l1" data-t="Welcome" aria-hidden="true"><b>W</b><b>e</b><b>l</b><b>c</b><b>o</b><b>m</b><b>e</b></span>
+        <span class="logo-line l2" data-t="To My" aria-hidden="true"><b>T</b><b>o</b> <b>M</b><b>y</b></span>
+        <span class="logo-line l3" data-t="portfolio" aria-hidden="true"><b>p</b><b>o</b><b>r</b><b>t</b><b>f</b><b>o</b><b>l</b><b>i</b><b>o</b></span>
+      </h1>
+      <p>A little space about me, my interests, and the things I love.</p>
+    </div>
+    <!-- WELCOME POLAROIDS: replace images/welcome-1.jpg ... welcome-6.jpg and edit the captions -->
+    <figure class="snap s1"><span class="snap-tape tape-y" aria-hidden="true"></span>
+      <div class="photo" data-label="welcome-1.jpg"><img src="images/welcome-1.jpg" alt="Welcome photo 1"></div>
+      <figcaption>[Caption 1]</figcaption></figure>
+    <figure class="snap s2"><span class="snap-tape tape-b" aria-hidden="true"></span>
+      <div class="photo" data-label="welcome-2.jpg"><img src="images/welcome-2.jpg" alt="Welcome photo 2"></div>
+      <figcaption>[Caption 2]</figcaption></figure>
+    <figure class="snap s3"><span class="snap-tape tape-o" aria-hidden="true"></span>
+      <div class="photo" data-label="welcome-3.jpg"><img src="images/welcome-3.jpg" alt="Welcome photo 3"></div>
+      <figcaption>[Caption 3]</figcaption></figure>
+    <figure class="snap s4"><span class="snap-tape tape-y" aria-hidden="true"></span>
+      <div class="photo" data-label="welcome-4.jpg"><img src="images/welcome-4.jpg" alt="Welcome photo 4"></div>
+      <figcaption>[Caption 4]</figcaption></figure>
+    <figure class="snap s5"><span class="snap-tape tape-b" aria-hidden="true"></span>
+      <div class="photo" data-label="welcome-5.jpg"><img src="images/welcome-5.jpg" alt="Welcome photo 5"></div>
+      <figcaption>[Caption 5]</figcaption></figure>
+    <figure class="snap s6"><span class="snap-tape tape-o" aria-hidden="true"></span>
+      <div class="photo" data-label="welcome-6.jpg"><img src="images/welcome-6.jpg" alt="Welcome photo 6"></div>
+      <figcaption>[Caption 6]</figcaption></figure>
+    <a class="scroll-cue" href="#profile" aria-label="Scroll down to my profile">scroll down<span>⌄</span></a>
+  </section>
+
+  <!-- PART 2: PROFILE -->
+  <section id="profile" class="section profile">
+    <span class="cloth br" aria-hidden="true"></span>
+    <svg class="dec" style="--w:11vw;--a:-12deg;left:2%;bottom:6%" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:9vw;--a:14deg;right:3%;top:8%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:3.5vw;left:14%;top:20%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:4vw;right:12%;bottom:12%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+
+    <span class="deco sticker-free pf1" aria-hidden="true">★</span>
+    <span class="deco sticker-free pf2" aria-hidden="true">♥</span>
+    <span class="washi w-a" aria-hidden="true"></span>
+    <div class="profile-wrap reveal">
+      <div class="profile-card">
+        <figure class="photo small" data-label="profile-small.jpg">
+          <img src="images/profile-small.jpg" alt="Small photo of me">
+        </figure>
+        <div class="profile-text">
+          <h2 id="profile-name">Your name</h2>
+          <div class="bio">
+            <p>[Paste your author's biography here.]</p>
+            <!-- Add more <p> paragraphs here if you need them -->
+          </div>
+          <button type="button" id="open-notebook" class="btn">Your text</button>
+        </div>
+      </div>
+      <figure class="photo large" data-label="profile-main.jpg">
+        <img src="images/profile-main.jpg" alt="Large photo of me">
+      </figure>
+    </div>
+  </section>
+
+  <!-- PART 4: FAVORITE SONGS -->
+  <section id="songs" class="section songs">
+    <span class="cloth tl" aria-hidden="true"></span>
+    <svg class="dec" style="--w:10vw;--a:10deg;right:2%;top:9%" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:8vw;--a:-15deg;left:2%;bottom:7%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:3.4vw;--a:20deg;right:16%;bottom:12%" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:3vw;left:12%;top:40%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+
+    <span class="deco sticker-free sg1" aria-hidden="true">♪</span>
+    <span class="deco sticker-free sg2" aria-hidden="true">♫</span>
+    <span class="deco sticker-free sg3" aria-hidden="true">✦</span>
+    <span class="washi w-b" aria-hidden="true"></span>
+    <div class="container reveal">
+      <span class="label">♫ playlist</span>
+      <h2>My Favorite Songs</h2>
+      <div class="song-grid">
+        <article class="song-card" data-audio="audio/song-1.mp3" data-title="[Song title 1]">
+          <figure class="photo" data-label="song-1.jpg"><img src="images/song-1.jpg" alt="Cover of song 1"></figure>
+          <h3>[Song title 1]</h3><p class="artist">[Artist]</p><p>[Optional short description.]</p>
+          <button type="button" class="btn small play-card">Play</button>
+        </article>
+        <article class="song-card" data-audio="audio/song-2.mp3" data-title="[Song title 2]">
+          <figure class="photo" data-label="song-2.jpg"><img src="images/song-2.jpg" alt="Cover of song 2"></figure>
+          <h3>[Song title 2]</h3><p class="artist">[Artist]</p><p>[Optional short description.]</p>
+          <button type="button" class="btn small play-card">Play</button>
+        </article>
+        <article class="song-card" data-audio="audio/song-3.mp3" data-title="[Song title 3]">
+          <figure class="photo" data-label="song-3.jpg"><img src="images/song-3.jpg" alt="Cover of song 3"></figure>
+          <h3>[Song title 3]</h3><p class="artist">[Artist]</p><p>[Optional short description.]</p>
+          <button type="button" class="btn small play-card">Play</button>
+        </article>
+        <article class="song-card" data-audio="audio/song-4.mp3" data-title="[Song title 4]">
+          <figure class="photo" data-label="song-4.jpg"><img src="images/song-4.jpg" alt="Cover of song 4"></figure>
+          <h3>[Song title 4]</h3><p class="artist">[Artist]</p><p>[Optional short description.]</p>
+          <button type="button" class="btn small play-card">Play</button>
+        </article>
+      </div>
+
+      <div class="player" aria-label="Music player">
+        <button type="button" id="prev" class="round" aria-label="Previous song">⏮</button>
+        <button type="button" id="play" class="round big" aria-label="Play or pause">▶</button>
+        <button type="button" id="next" class="round" aria-label="Next song">⏭</button>
+        <div class="player-info">
+          <strong id="now-title">Pick a song to start</strong>
+          <input type="range" id="progress" min="0" max="100" value="0" aria-label="Song progress">
+          <small id="player-msg">Add audio files to the audio folder to enable playback.</small>
+        </div>
+      </div>
+      <audio id="audio" preload="none"></audio>
+    </div>
+  </section>
+
+  <!-- PART 5: FAVORITE GAMES -->
+  <section id="games" class="section games">
+    <span class="cloth tr" aria-hidden="true"></span>
+    <svg class="dec" style="--w:9vw;--a:-10deg;left:2%;top:10%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:10vw;--a:12deg;left:5%;bottom:5%" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:8vw;--a:8deg;right:3%;bottom:8%" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:3.6vw;right:14%;top:46%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+
+    <span class="deco sticker-free gm1" aria-hidden="true">✦</span>
+    <span class="deco sticker-free gm2" aria-hidden="true">♟</span>
+    <span class="deco sticker-free gm3" aria-hidden="true">★</span>
+    <span class="washi w-a" aria-hidden="true"></span>
+    <div class="container reveal">
+      <h2>My Favorite Games</h2>
+      <p class="hint">Click a card to read more.</p>
+      <div class="game-grid">
+        <article class="game-card" tabindex="0" role="button" aria-expanded="false">
+          <figure class="photo" data-label="game-1.jpg"><img src="images/game-1.jpg" alt="Game 1 cover"></figure>
+          <h3>[Game name]</h3>
+          <p class="more">[Write a short description here.]</p>
+        </article>
+        <article class="game-card" tabindex="0" role="button" aria-expanded="false">
+          <figure class="photo" data-label="game-2.jpg"><img src="images/game-2.jpg" alt="Game 2 cover"></figure>
+          <h3>[Game name]</h3>
+          <p class="more">[Write a short description here.]</p>
+        </article>
+        <article class="game-card" tabindex="0" role="button" aria-expanded="false">
+          <figure class="photo" data-label="game-3.jpg"><img src="images/game-3.jpg" alt="Game 3 cover"></figure>
+          <h3>[Game name]</h3>
+          <p class="more">[Write a short description here.]</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 6: HOBBIES -->
+  <section id="hobbies" class="section hobbies">
+    <span class="cloth bl" aria-hidden="true"></span>
+    <svg class="dec" style="--w:9vw;--a:-10deg;left:2%;top:9%" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:9vw;--a:12deg;right:3%;top:8%" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:10vw;--a:-8deg;right:2%;bottom:6%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+    <svg class="dec" style="--w:3.6vw;left:14%;bottom:30%" aria-hidden="true"><use href="#sprout" width="100%" height="100%"/></svg>
+
+    <span class="deco sticker-free hb1" aria-hidden="true">✂</span>
+    <span class="deco sticker-free hb2" aria-hidden="true">✿</span>
+    <span class="deco sticker-free hb3" aria-hidden="true">☀</span>
+    <span class="washi w-b" aria-hidden="true"></span>
+    <div class="container reveal">
+      <h2>My Hobbies</h2>
+      <div class="hobby-grid">
+        <article class="hobby-card"><span class="tape" aria-hidden="true"></span>
+          <figure class="photo" data-label="hobby-1.jpg"><img src="images/hobby-1.jpg" alt="Hobby 1"></figure>
+          <h3>[Hobby name]</h3><p>[Write about this hobby here.]</p></article>
+        <article class="hobby-card"><span class="tape" aria-hidden="true"></span>
+          <figure class="photo" data-label="hobby-2.jpg"><img src="images/hobby-2.jpg" alt="Hobby 2"></figure>
+          <h3>[Hobby name]</h3><p>[Write about this hobby here.]</p></article>
+        <article class="hobby-card"><span class="tape" aria-hidden="true"></span>
+          <figure class="photo" data-label="hobby-3.jpg"><img src="images/hobby-3.jpg" alt="Hobby 3"></figure>
+          <h3>[Hobby name]</h3><p>[Write about this hobby here.]</p></article>
+        <article class="hobby-card"><span class="tape" aria-hidden="true"></span>
+          <figure class="photo" data-label="hobby-4.jpg"><img src="images/hobby-4.jpg" alt="Hobby 4"></figure>
+          <h3>[Hobby name]</h3><p>[Write about this hobby here.]</p></article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ===== PART 3: NOTEBOOK VIEW (separate full-screen view) ===== -->
+<div id="notebook-view" class="notebook-view" hidden>
+  <button type="button" id="close-notebook" class="back" aria-label="Return to portfolio">&lt;</button>
+  <div class="notebook">
+      <svg class="dec" style="--w:90px;--a:14deg;top:-46px;right:-28px" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:84px;--a:-12deg;bottom:-36px;left:-30px" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:70px;--a:10deg;bottom:-30px;right:12%" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:44px;top:-18px;left:18%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:40px;top:-14px;right:30%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+
+    <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <span class="tab t1" aria-hidden="true"></span><span class="tab t2" aria-hidden="true"></span>
+    <div class="page left">
+      <figure class="polaroid p1"><span class="tape" aria-hidden="true"></span>
+        <div class="photo" data-label="personal-photo-1.jpg"><img src="images/personal-photo-1.jpg" alt="Personal photo 1"></div>
+        <figcaption>[Write a caption]</figcaption></figure>
+      <figure class="polaroid p2"><span class="tape" aria-hidden="true"></span>
+        <div class="photo" data-label="personal-photo-2.jpg"><img src="images/personal-photo-2.jpg" alt="Personal photo 2"></div>
+        <figcaption>[Write a caption]</figcaption></figure>
+    </div>
+    <div class="page right">
+      <div class="note"><h3>About Me</h3><p>[Write your information here.]</p></div>
+      <div class="note"><h3>My Personality</h3><p>[Write your information here.]</p></div>
+      <div class="note"><h3>My Interests</h3><p>[Write your information here.]</p></div>
+      <div class="note sticky"><h3>Fun Facts About Me</h3><p>[Write your information here.]</p></div>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
