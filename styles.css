@@ -381,7 +381,50 @@ h2 { font-family: var(--logo); font-weight: 400; color: var(--senga-sengana); fo
 .polaroid.p1:hover, .polaroid.p2:hover { transform: rotate(0deg) scale(1.04); }
 @media (hover: none) { .polaroid.p1:hover, .polaroid.p2:hover { transform: rotate(var(--r)); } }
 
+/* ===== WELCOME TITLE: glossy shine inside each letter ===== */
+.logo-line b::before { content: none; }
+.l1 { --lc: var(--senga-sengana); } .l2 { --lc: var(--mandarin); } .l3 { --lc: var(--tropicana); }
+.logo-line b { color: transparent; -webkit-background-clip: text; background-clip: text;
+  background-image: linear-gradient(180deg, rgba(255, 255, 255, .6) 0%, rgba(255, 255, 255, 0) 55%), linear-gradient(var(--lc), var(--lc)); }
+
 /* ===== CUTE APPLE CURSORS (desktop only; phones and tablets ignore cursors) =====
    Normal cursor = apple slice arrow. Over buttons and links = red apple hand. */
-body, body * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M4%202%20L28%2019%20L6%2029%20Z%27%20fill%3D%27%23FFF8E0%27%20stroke%3D%27%23B30008%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cellipse%20cx%3D%2710.5%27%20cy%3D%2718%27%20rx%3D%271.8%27%20ry%3D%273%27%20transform%3D%27rotate%28-20%2010.5%2018%29%27%20fill%3D%27%23F5B754%27%20stroke%3D%27%238a4b1c%27%20stroke-width%3D%27.8%27%2F%3E%3Cellipse%20cx%3D%2716%27%20cy%3D%2720%27%20rx%3D%271.8%27%20ry%3D%273%27%20transform%3D%27rotate%2840%2016%2020%29%27%20fill%3D%27%23F5B754%27%20stroke%3D%27%238a4b1c%27%20stroke-width%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M4%202%20L3%20.2%27%20stroke%3D%27%23B30008%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E") 4 2, auto; }
+body, body * { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2732%27%20viewBox%3D%270%200%2032%2032%27%3E%3Cpath%20d%3D%27M4%202%20L28%2019%20L6%2029%20Z%27%20fill%3D%27%23FFF8E0%27%20stroke%3D%27%23B30008%27%20stroke-width%3D%272%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cellipse%20cx%3D%2715.8%27%20cy%3D%2714.9%27%20rx%3D%271.9%27%20ry%3D%273.2%27%20transform%3D%27rotate%28-30%2015.8%2014.9%29%27%20fill%3D%27%23F5B754%27%20stroke%3D%27%238a4b1c%27%20stroke-width%3D%27.8%27%2F%3E%3Cellipse%20cx%3D%279.6%27%20cy%3D%2718.5%27%20rx%3D%271.9%27%20ry%3D%273.2%27%20transform%3D%27rotate%28-30%209.6%2018.5%29%27%20fill%3D%27%23F5B754%27%20stroke%3D%27%238a4b1c%27%20stroke-width%3D%27.8%27%2F%3E%3Cpath%20d%3D%27M4%202%20L3%20.2%27%20stroke%3D%27%23B30008%27%20stroke-width%3D%271.5%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E") 4 2, auto; }
 body a, body button, body [role="button"], body .btn, body .round, body .back, body .game-card, body .song-card .play-card, body input[type="range"], body label { cursor: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2732%27%20height%3D%2738%27%20viewBox%3D%270%200%2032%2038%27%3E%3Cg%20transform%3D%27translate%280%203%29%27%3E%3Cpath%20d%3D%27M11%206%20C11%203%2017%203%2017%206%20L17%2015%20C19%2013%2023%2014%2024%2016%20C26%2015%2028%2017%2028%2019%20L28%2026%20C28%2031%2025%2034%2020%2034%20L14%2034%20C10%2034%208%2031%206%2027%20C5%2025%206%2023%208%2023%20L11%2025%20Z%27%20fill%3D%27%23B30008%27%20stroke%3D%27%237e0006%27%20stroke-width%3D%271.5%27%20stroke-linejoin%3D%27round%27%2F%3E%3Cpath%20d%3D%27M19%2020%20C22%2018%2026%2019%2026%2022%20L26%2026%20C26%2030%2023%2032%2020%2032%20C21%2028%2021%2024%2019%2020Z%27%20fill%3D%27%23D6443A%27%20opacity%3D%27.7%27%2F%3E%3Cellipse%20cx%3D%2723%27%20cy%3D%2722%27%20rx%3D%272.4%27%20ry%3D%271.3%27%20fill%3D%27%23fff%27%20opacity%3D%27.85%27%20transform%3D%27rotate%28-30%2023%2022%29%27%2F%3E%3Cpath%20d%3D%27M14%204%20L15%20.5%27%20stroke%3D%27%234a2420%27%20stroke-width%3D%271.6%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M15%202%20C16%20-.5%2019.5%20-.5%2020.5%201%20C19.5%203%2016.5%203.5%2015%202Z%27%20fill%3D%27%23769F13%27%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") 14 6, pointer; }
+
+/* ===== PART 2: NAME ABOVE THE CARD ===== */
+.profile-stack { width: min(1100px, 100%); position: relative; z-index: 2; }
+.profile-name { display: inline-block; transform: rotate(-4deg); transform-origin: left bottom; margin: 0 0 2.2rem .8rem; font-size: clamp(2.2rem, 6vw, 3.8rem); }
+@media (max-width: 900px) { .profile-name { display: block; text-align: center; transform: rotate(-3deg); transform-origin: center; margin: 0 0 1.6rem; } }
+
+/* ===== VOLUME CONTROL ===== */
+.volume { display: flex; align-items: center; gap: .5rem; flex: 0 1 160px; }
+.volume input { flex: 1; min-width: 70px; accent-color: var(--senga-sengana); }
+
+/* ===== APPLE VOLUME ICON: sound waves appear next to the apple; an X means muted ===== */
+#mute { display: grid; place-items: center; padding: 0; }
+#mute svg { width: 32px; height: 27px; display: block; overflow: visible; }
+#mute .w1, #mute .w2, #mute .x { display: none; }
+#mute[data-level="low"] .w1, #mute[data-level="high"] .w1, #mute[data-level="high"] .w2, #mute[data-level="mute"] .x { display: inline; }
+
+/* ===== NOTEBOOK: EXTRA PAGE + BOOKMARKS ===== */
+.spread { display: contents; }
+.spread[hidden] { display: none; }
+.spread.flip .page { animation: pageIn .45s ease both; }
+@keyframes pageIn { from { opacity: 0; transform: translateX(26px); } to { opacity: 1; transform: none; } }
+/* page 2 mirrors the photo layout so it doesn't look like a copy of page 1 */
+.spread.alt .polaroid.p1 { top: auto; bottom: 6%; left: 8%; --r: 5deg; }
+.spread.alt .polaroid.p2 { bottom: auto; top: 8%; right: 8%; --r: -4deg; }
+/* the bookmarks hang over the right edge of the notebook; the wrapper carries the shadow so it follows the ribbon notch */
+.bookmarks { position: absolute; top: 70px; right: -28px; z-index: 6; filter: drop-shadow(2px 3px 3px rgba(74, 36, 32, .4)); }
+.bookmark { display: flex; align-items: center; justify-content: center; width: 46px; height: 130px; padding: 0 0 18px; border: 0; writing-mode: vertical-rl;
+  font-family: var(--logo); font-size: .95rem; letter-spacing: .06em; color: var(--vanilla-cream);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 84%, 0 100%); transition: transform .2s; }
+.bookmark[hidden] { display: none; }
+.bookmark.red { background: var(--senga-sengana); }
+.bookmark.green { background: var(--tropicana); }
+.bookmark:hover { transform: translateX(-8px); }
+.bookmark:focus-visible { outline: none; box-shadow: inset 0 0 0 3px var(--daisy-desi); }
+@media (hover: none) { .bookmark:hover { transform: none; } }
+@media (min-width: 701px) { .notebook-view { padding-inline: 2.4rem; } }
+@media (max-width: 700px) { .bookmarks { right: 16px; top: -8px; } .bookmark { height: 112px; width: 42px; font-size: .85rem; } }

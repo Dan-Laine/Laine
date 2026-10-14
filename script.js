@@ -19,6 +19,7 @@ function openNotebook() {
   portfolio.hidden = true;
   notebook.hidden = false;
   document.body.classList.add('notebook-open');
+  showSpread(1, false);                   // always start on the first notebook page
   notebook.scrollTop = 0;
   closeBtn.focus();
 }
@@ -122,3 +123,58 @@ audio.addEventListener('timeupdate', () => {
 progress.addEventListener('input', () => {
   if (audio.duration) audio.currentTime = (progress.value / 100) * audio.duration;
 });
+
+/* ===== 6. Volume control ===== */
+const volumeSlider = document.getElementById('volume');
+const muteBtn = document.getElementById('mute');
+let lastVolume = 0.7;                 // volume to return to after un-muting
+
+function updateVolumeUI() {
+  const v = audio.muted ? 0 : audio.volume;
+  volumeSlider.value = Math.round(v * 100);
+  muteBtn.dataset.level = v === 0 ? 'mute' : v < 0.5 ? 'low' : 'high';   // CSS shows the matching apple icon
+  muteBtn.setAttribute('aria-label', v === 0 ? 'Unmute' : 'Mute');
+}
+
+volumeSlider.addEventListener('input', () => {
+  const v = volumeSlider.value / 100;
+  audio.volume = v;
+  audio.muted = (v === 0);
+  if (v > 0) lastVolume = v;
+  updateVolumeUI();
+});
+
+muteBtn.addEventListener('click', () => {
+  if (audio.muted || audio.volume === 0) {
+    audio.muted = false;
+    audio.volume = lastVolume || 0.7;
+  } else {
+    lastVolume = audio.volume;
+    audio.muted = true;
+  }
+  updateVolumeUI();
+});
+
+audio.addEventListener('volumechange', updateVolumeUI);
+audio.volume = 0.7;                   // start at 70% (matches the slider)
+updateVolumeUI();
+
+/* ===== 7. Notebook pages and bookmarks (inside Part 3) ===== */
+const spread1 = document.getElementById('spread-1');
+const spread2 = document.getElementById('spread-2');
+const bookmarkNext = document.getElementById('bookmark-next');   // red: open the extra page
+const bookmarkBack = document.getElementById('bookmark-back');   // green: back to the first page
+
+function showSpread(number, animate) {
+  spread1.hidden = number !== 1;
+  spread2.hidden = number !== 2;
+  bookmarkNext.hidden = number !== 1;
+  bookmarkBack.hidden = number !== 2;
+  const active = number === 1 ? spread1 : spread2;
+  active.classList.remove('flip');
+  if (animate) requestAnimationFrame(() => active.classList.add('flip'));
+  notebook.scrollTop = 0;
+}
+
+bookmarkNext.addEventListener('click', () => { showSpread(2, true); bookmarkBack.focus(); });
+bookmarkBack.addEventListener('click', () => { showSpread(1, true); bookmarkNext.focus(); });

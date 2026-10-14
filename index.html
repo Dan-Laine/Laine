@@ -23,7 +23,7 @@
   <symbol id="apple-gingham" viewBox="0 0 100 100"><use href="#ab" fill="url(#gp)"/><use href="#sl"/></symbol>
   <symbol id="apple-half" viewBox="0 0 100 100"><use href="#ab" style="fill:var(--senga-sengana)"/><use href="#ab" transform="translate(50 57) scale(.78) translate(-50 -57)" style="fill:var(--daisy-desi)"/><ellipse cx="43" cy="62" rx="3" ry="5" transform="rotate(-15 43 62)" fill="#4a2420"/><ellipse cx="57" cy="62" rx="3" ry="5" transform="rotate(15 57 62)" fill="#4a2420"/><use href="#sl"/></symbol>
   <symbol id="flower" viewBox="0 0 40 40"><g style="fill:var(--mandarin)"><circle cx="20" cy="10" r="7"/><circle cx="29.5" cy="17" r="7"/><circle cx="26" cy="28" r="7"/><circle cx="14" cy="28" r="7"/><circle cx="10.5" cy="17" r="7"/></g><circle cx="20" cy="20" r="5" style="fill:var(--daisy-desi)"/></symbol>
-  <symbol id="ladybug" viewBox="0 0 40 40"><ellipse cx="20" cy="24" rx="14" ry="12" style="fill:var(--senga-sengana)"/><circle cx="20" cy="10" r="6" fill="#4a2420"/><path d="M20 13V36" stroke="#4a2420" stroke-width="1.6"/><g fill="#4a2420"><circle cx="13" cy="22" r="2.4"/><circle cx="27" cy="22" r="2.4"/><circle cx="15" cy="30" r="2.4"/><circle cx="25" cy="30" r="2.4"/></g></symbol>
+  <symbol id="ladybug" viewBox="0 0 40 40"><ellipse cx="20" cy="24" rx="14" ry="12" stroke="#FFF8E0" stroke-width="2.6" style="fill:var(--senga-sengana)"/><circle cx="20" cy="10" r="6" fill="#4a2420" stroke="#FFF8E0" stroke-width="2.6"/><ellipse cx="20" cy="24" rx="14" ry="12" style="fill:var(--senga-sengana)"/><circle cx="20" cy="10" r="5" fill="#4a2420"/><path d="M20 13V36" stroke="#4a2420" stroke-width="1.6"/><g fill="#4a2420"><circle cx="13" cy="22" r="2.4"/><circle cx="27" cy="22" r="2.4"/><circle cx="15" cy="30" r="2.4"/><circle cx="25" cy="30" r="2.4"/></g></symbol>
   <symbol id="sprout" viewBox="0 0 40 40"><path d="M20 38V20" stroke="#4a2420" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M20 22C8 22 6 10 8 8C20 8 22 14 20 22Z" style="fill:var(--kiwi-colada)"/><path d="M20 22C32 22 34 10 32 8C20 8 18 14 20 22Z" style="fill:var(--tropicana)"/></symbol>
   <symbol id="clover" viewBox="0 0 40 40"><g style="fill:var(--tropicana)" opacity=".85"><circle cx="14" cy="14" r="7"/><circle cx="26" cy="14" r="7"/><circle cx="14" cy="26" r="7"/><circle cx="26" cy="26" r="7"/></g><path d="M20 20L26 38" stroke="#4a2420" stroke-width="2" fill="none"/></symbol>
 </svg>
@@ -67,7 +67,7 @@
       <svg class="dec" style="--w:9vw;--a:14deg;top:-34px;right:-30px" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
       <svg class="dec" style="--w:8vw;--a:-12deg;bottom:-30px;left:-34px" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
       <svg class="dec" style="--w:4vw;top:15%;left:30%" aria-hidden="true"><use href="#sprout" width="100%" height="100%"/></svg>
-      <svg class="dec" style="--w:3.6vw;--a:12deg;top:22%;right:15%" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:4.6vw;--a:12deg;top:22%;right:15%" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
       <svg class="dec" style="--w:4.5vw;bottom:19%;left:9%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
       <svg class="dec" style="--w:3vw;--a:20deg;bottom:30%;right:8%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
       <svg class="dec" style="--w:3vw;top:30%;left:7%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
@@ -111,13 +111,15 @@
     <span class="deco sticker-free pf1" aria-hidden="true">★</span>
     <span class="deco sticker-free pf2" aria-hidden="true">♥</span>
     <span class="washi w-a" aria-hidden="true"></span>
-    <div class="profile-wrap reveal">
+    <div class="profile-stack reveal">
+      <!-- Replace "Your name" with your name -->
+      <h2 id="profile-name" class="profile-name">Your name</h2>
+      <div class="profile-wrap">
       <div class="profile-card">
         <figure class="photo small" data-label="profile-small.jpg">
           <img src="images/profile-small.jpg" alt="Small photo of me">
         </figure>
         <div class="profile-text">
-          <h2 id="profile-name">Your name</h2>
           <div class="bio">
             <p>[Paste your author's biography here.]</p>
             <!-- Add more <p> paragraphs here if you need them -->
@@ -128,6 +130,7 @@
       <figure class="photo large" data-label="profile-main.jpg">
         <img src="images/profile-main.jpg" alt="Large photo of me">
       </figure>
+    </div>
     </div>
   </section>
 
@@ -177,6 +180,16 @@
           <strong id="now-title">Pick a song to start</strong>
           <input type="range" id="progress" min="0" max="100" value="0" aria-label="Song progress">
           <small id="player-msg">Add audio files to the audio folder to enable playback.</small>
+        </div>
+        <div class="volume">
+          <button type="button" id="mute" class="round" aria-label="Mute" data-level="high">
+            <svg viewBox="0 0 44 36" aria-hidden="true"><use href="#apple-solid" x="0" y="3" width="30" height="30"/>
+              <g fill="none" stroke="#FFF8E0" stroke-width="2.4" stroke-linecap="round">
+                <path class="w1" d="M33 13 Q37 18 33 23"/><path class="w2" d="M37 9 Q43 18 37 27"/>
+                <path class="x" d="M34 12 L42 24 M42 12 L34 24"/>
+              </g></svg>
+          </button>
+          <input type="range" id="volume" min="0" max="100" value="70" aria-label="Volume">
         </div>
       </div>
       <audio id="audio" preload="none"></audio>
@@ -261,7 +274,12 @@
       <svg class="dec" style="--w:40px;top:-14px;right:30%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
 
     <div class="rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <span class="tab t1" aria-hidden="true"></span><span class="tab t2" aria-hidden="true"></span>
+    <!-- BOOKMARKS: red opens the extra page, green returns to the first page -->
+    <div class="bookmarks">
+      <button type="button" id="bookmark-next" class="bookmark red" aria-label="Open the next notebook page">next page</button>
+      <button type="button" id="bookmark-back" class="bookmark green" aria-label="Go back to the first notebook page" hidden>go back</button>
+    </div>
+    <div class="spread" id="spread-1">
     <div class="page left">
       <figure class="polaroid p1"><span class="tape" aria-hidden="true"></span>
         <div class="photo" data-label="personal-photo-1.jpg"><img src="images/personal-photo-1.jpg" alt="Personal photo 1"></div>
@@ -275,6 +293,24 @@
       <div class="note"><h3>My Personality</h3><p>[Write your information here.]</p></div>
       <div class="note"><h3>My Interests</h3><p>[Write your information here.]</p></div>
       <div class="note sticky"><h3>Fun Facts About Me</h3><p>[Write your information here.]</p></div>
+    </div>
+    </div>
+    <!-- EXTRA NOTEBOOK PAGE (opens with the red bookmark) -->
+    <div class="spread alt" id="spread-2" hidden>
+      <div class="page left">
+        <figure class="polaroid p1"><span class="tape" aria-hidden="true"></span>
+          <div class="photo" data-label="personal-photo-3.jpg"><img src="images/personal-photo-3.jpg" alt="Personal photo 3"></div>
+          <figcaption>[Write a caption]</figcaption></figure>
+        <figure class="polaroid p2"><span class="tape" aria-hidden="true"></span>
+          <div class="photo" data-label="personal-photo-4.jpg"><img src="images/personal-photo-4.jpg" alt="Personal photo 4"></div>
+          <figcaption>[Write a caption]</figcaption></figure>
+      </div>
+      <div class="page right">
+        <div class="note"><h3>My Goals</h3><p>[Write your information here.]</p></div>
+        <div class="note"><h3>Things I Love</h3><p>[Write your information here.]</p></div>
+        <div class="note"><h3>Favorite Quotes</h3><p>[Write your information here.]</p></div>
+        <div class="note sticky"><h3>Notes To Myself</h3><p>[Write your information here.]</p></div>
+      </div>
     </div>
   </div>
 </div>
