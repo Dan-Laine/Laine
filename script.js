@@ -178,3 +178,15 @@ function showSpread(number, animate) {
 
 bookmarkNext.addEventListener('click', () => { showSpread(2, true); bookmarkBack.focus(); });
 bookmarkBack.addEventListener('click', () => { showSpread(1, true); bookmarkNext.focus(); });
+
+/* ===== 8. Hobby playing cards: tap or press Enter/Space to flip ===== */
+document.querySelectorAll('.flip-card').forEach(card => {
+  const flip = () => {
+    const flipped = card.classList.toggle('flipped');
+    card.setAttribute('aria-pressed', flipped);
+  };
+  card.addEventListener('click', flip);
+  card.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
+  });
+});
