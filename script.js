@@ -19,7 +19,8 @@ function openNotebook() {
   portfolio.hidden = true;
   notebook.hidden = false;
   document.body.classList.add('notebook-open');
-  showSpread(1, false);                   // always start on the first notebook page
+  buildNotebook();                        // fit the notes onto pages (adds pages if needed)
+  showSpread(0, false);                   // always start on the first notebook page
   notebook.scrollTop = 0;
   closeBtn.focus();
 }
@@ -96,7 +97,7 @@ function playSong() {
   if (current === -1) loadSong(0);
   audio.play().catch(() => {
     // Happens when the audio file doesn't exist yet
-    message.textContent = 'No audio file found. Add ' + cards[current].dataset.audio + ' to play this song.';
+    message.textContent = 'Could not play this song. Try another browser.';
     playBtn.textContent = '▶';
   });
 }
@@ -159,25 +160,134 @@ audio.addEventListener('volumechange', updateVolumeUI);
 audio.volume = 0.7;                   // start at 70% (matches the slider)
 updateVolumeUI();
 
-/* ===== 7. Notebook pages and bookmarks (inside Part 3) ===== */
-const spread1 = document.getElementById('spread-1');
-const spread2 = document.getElementById('spread-2');
-const bookmarkNext = document.getElementById('bookmark-next');   // red: open the extra page
-const bookmarkBack = document.getElementById('bookmark-back');   // green: back to the first page
+/* ===== 7. Notebook pages and bookmarks (inside Part 3) =====
+   The notebook has a FIXED size. The notes live in the hidden #nb-notes list in index.html.
+   buildNotebook() puts as many notes as fit on each right-hand page and, when the rest
+   won't fit, automatically adds a new page (with a decorated left-hand page next to it).
+   On phones every page is shown one at a time. */
+const nbBook = document.querySelector('.notebook');
+const nbNotesSrc = document.getElementById('nb-notes');
+const nbLeftsSrc = document.getElementById('nb-lefts');
+const nbNotes = Array.from(nbNotesSrc.children);
+const nbLefts = Array.from(nbLeftsSrc.children);     // 2 photo pages + 2 decorated pages (the decorated ones repeat if needed)
+const bookmarkNext = document.getElementById('bookmark-next');   // red: next page
+const bookmarkBack = document.getElementById('bookmark-back');   // green: previous page
+const nbStickers = ['apple-half', 'flower', 'ladybug', 'clover', 'sprout', 'apple-solid'];
+let spreads = [];
+let spreadIndex = 0;
+let builtKey = '';
 
-function showSpread(number, animate) {
-  spread1.hidden = number !== 1;
-  spread2.hidden = number !== 2;
-  bookmarkNext.hidden = number !== 1;
-  bookmarkBack.hidden = number !== 2;
-  const active = number === 1 ? spread1 : spread2;
-  active.classList.remove('flip');
-  if (animate) requestAnimationFrame(() => active.classList.add('flip'));
+const nbIsPhone = () => window.matchMedia('(max-width: 700px)').matches;
+const nbKey = () => nbIsPhone() + '|' + nbBook.clientWidth + '|' + nbBook.clientHeight;
+
+function releaseNotebook() {
+  nbLefts.forEach(p => { p.querySelectorAll('.nb-num').forEach(n => n.remove()); nbLeftsSrc.appendChild(p); });
+  nbNotes.forEach(n => nbNotesSrc.appendChild(n));
+  nbBook.querySelectorAll('.spread').forEach(sp => sp.remove());
+  spreads = [];
+}
+
+function buildNotebook() {
+  releaseNotebook();
+  const phone = nbIsPhone();
+
+  // 1) measure how many notes fit on one right-hand page
+  const probe = document.createElement('div');
+  probe.className = 'spread';
+  const pg = document.createElement('div');
+  pg.className = 'page right';
+  pg.style.visibility = 'hidden';
+  probe.appendChild(pg);
+  nbBook.appendChild(probe);
+  const padBottom = parseFloat(getComputedStyle(pg).paddingBottom) || 0;
+  const fits = () => { const last = pg.lastElementChild; return !last || last.offsetTop + last.offsetHeight <= pg.clientHeight - padBottom; };
+  const groups = [];
+  let group = [];
+  nbNotes.forEach(note => {
+    pg.appendChild(note);
+    if (!fits() && group.length) {            // it doesn't fit: start a new page with this note
+      pg.removeChild(note);
+      groups.push(group);
+      group = [];
+      pg.textContent = '';
+      pg.appendChild(note);
+    }
+    group.push(note);
+  });
+  if (group.length) groups.push(group);
+  probe.remove();
+  builtKey = nbKey();
+
+  // 2) build the real pages
+  let number = 1;
+  const addNumber = page => {
+    const tag = document.createElement('span');
+    tag.className = 'nb-num';
+    tag.setAttribute('aria-hidden', 'true');
+    tag.textContent = number++;
+    page.appendChild(tag);
+  };
+  const leftFor = i => {
+    if (i < nbLefts.length) return nbLefts[i];
+    const copy = nbLefts[2 + (i % 2)].cloneNode(true);   // repeat the decorated pages if there are even more notes
+    copy.removeAttribute('id');
+    return copy;
+  };
+  const rightFor = (notes, i) => {
+    const page = document.createElement('div');
+    page.className = 'page right';
+    notes.forEach(n => page.appendChild(n));
+    const sticker = nbStickers[i % nbStickers.length];
+    page.insertAdjacentHTML('beforeend',
+      '<svg class="nb-sticker" style="--a:' + (i % 2 ? '-10deg' : '12deg') + '" aria-hidden="true"><use href="#' + sticker + '" width="100%" height="100%"/></svg>' +
+      '<span class="nb-star" aria-hidden="true">' + (i % 2 ? '✿' : '✦') + '</span>');
+    return page;
+  };
+  const makeSpread = (...pages) => {
+    const sp = document.createElement('div');
+    sp.className = 'spread';
+    sp.hidden = true;
+    pages.forEach(p => sp.appendChild(p));
+    if (pages.some(p => p.dataset.alt)) sp.classList.add('alt');   // mirrored photo layout, as before
+    nbBook.appendChild(sp);
+    spreads.push(sp);
+  };
+  groups.forEach((notes, i) => {
+    const left = leftFor(i);
+    const right = rightFor(notes, i);
+    addNumber(left);
+    if (phone) { makeSpread(left); addNumber(right); makeSpread(right); }
+    else { addNumber(right); makeSpread(left, right); }
+  });
+}
+
+function showSpread(index, animate) {
+  spreadIndex = Math.max(0, Math.min(spreads.length - 1, index));
+  spreads.forEach((sp, i) => { sp.hidden = i !== spreadIndex; sp.classList.remove('flip'); });
+  const active = spreads[spreadIndex];
+  if (active && animate) requestAnimationFrame(() => active.classList.add('flip'));
+  bookmarkNext.hidden = spreadIndex >= spreads.length - 1;
+  bookmarkBack.hidden = spreadIndex <= 0;
   notebook.scrollTop = 0;
 }
 
-bookmarkNext.addEventListener('click', () => { showSpread(2, true); bookmarkBack.focus(); });
-bookmarkBack.addEventListener('click', () => { showSpread(1, true); bookmarkNext.focus(); });
+bookmarkNext.addEventListener('click', () => { showSpread(spreadIndex + 1, true); (bookmarkNext.hidden ? bookmarkBack : bookmarkNext).focus(); });
+bookmarkBack.addEventListener('click', () => { showSpread(spreadIndex - 1, true); (bookmarkBack.hidden ? bookmarkNext : bookmarkBack).focus(); });
+document.addEventListener('keydown', e => {
+  if (notebook.hidden || e.altKey || e.ctrlKey || e.metaKey) return;
+  if (e.key === 'ArrowRight' && spreadIndex < spreads.length - 1) showSpread(spreadIndex + 1, true);
+  if (e.key === 'ArrowLeft' && spreadIndex > 0) showSpread(spreadIndex - 1, true);
+});
+let nbResizeTimer;
+window.addEventListener('resize', () => {          // rebuild the pages if the window size changes while the notebook is open
+  if (notebook.hidden) return;
+  clearTimeout(nbResizeTimer);
+  nbResizeTimer = setTimeout(() => {
+    if (nbKey() === builtKey) return;
+    buildNotebook();
+    showSpread(spreadIndex, false);
+  }, 150);
+});
 
 /* ===== 8. Hobby playing cards: tap or press Enter/Space to flip ===== */
 document.querySelectorAll('.flip-card').forEach(card => {
@@ -190,3 +300,64 @@ document.querySelectorAll('.flip-card').forEach(card => {
     if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); flip(); }
   });
 });
+
+/* ===== 9. Going to page 2 ("More About Me"): a quick fade, then the new page opens ===== */
+const moreLink = document.querySelector('.more-btn');
+if (moreLink) {
+  moreLink.addEventListener('click', e => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    e.preventDefault();
+    document.body.classList.add('leaving');
+    setTimeout(() => { window.location.href = moreLink.href; }, 260);
+  });
+}
+window.addEventListener('pageshow', () => document.body.classList.remove('leaving'));   // coming back with the browser's Back button
+/* ===== 10. Notebook polaroids: click (or press Enter) to view the photo bigger ===== */
+(function () {
+  const viewer = document.createElement('div');
+  viewer.className = 'pol-viewer';
+  viewer.hidden = true;
+  viewer.setAttribute('role', 'dialog');
+  viewer.setAttribute('aria-modal', 'true');
+  viewer.setAttribute('aria-label', 'Polaroid photo');
+  viewer.innerHTML = '<button type="button" class="pol-x" aria-label="Close photo">&times;</button><figure><img alt=""></figure>';
+  document.body.appendChild(viewer);
+  const bigImg = viewer.querySelector('img');
+  const xBtn = viewer.querySelector('.pol-x');
+  let lastFocus = null;
+
+  function openPol(fig) {
+    const img = fig.querySelector('img');
+    if (!img || fig.querySelector('.photo.missing')) return;
+    lastFocus = fig;
+    bigImg.src = img.currentSrc || img.src;
+    bigImg.alt = img.alt;
+    viewer.hidden = false;
+    xBtn.focus();
+  }
+  function closePol() {
+    if (viewer.hidden) return;
+    viewer.hidden = true;
+    bigImg.removeAttribute('src');
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  }
+
+  // Polaroids are rebuilt when the notebook opens, so listen on the whole notebook
+  const nbView = document.getElementById('notebook-view');
+  nbView.addEventListener('click', e => {
+    const fig = e.target.closest('.polaroid');
+    if (fig) openPol(fig);
+  });
+  nbView.addEventListener('keydown', e => {
+    const fig = e.target.closest && e.target.closest('.polaroid');
+    if (fig && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openPol(fig); }
+  });
+  // make every notebook polaroid keyboard-friendly
+  nbView.querySelectorAll('.polaroid').forEach(f => { f.tabIndex = 0; f.setAttribute('role', 'button'); f.setAttribute('aria-label', 'View photo bigger'); });
+
+  viewer.addEventListener('click', e => { if (e.target === viewer || e.target === xBtn) closePol(); });
+  // Escape closes only the photo (capture phase so the notebook stays open)
+  window.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !viewer.hidden) { e.stopImmediatePropagation(); closePol(); }
+  }, true);
+})();

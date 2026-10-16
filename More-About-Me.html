@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>More About Me</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Titan+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-more">
+<!-- ICON SPRITE: apples + little doodles used all over the site. Colors come from the CSS palette. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="gp" width="12" height="12" patternUnits="userSpaceOnUse">
+      <rect width="12" height="12" style="fill:var(--senga-sengana)"/><rect width="6" height="12" fill="#FFF8E0" opacity=".3"/><rect width="12" height="6" fill="#FFF8E0" opacity=".3"/>
+    </pattern>
+    <path id="ab" d="M50 28C42 18 14 22 12 52C10 78 28 96 42 96C47 96 48 93 50 93C52 93 53 96 58 96C72 96 90 78 88 52C86 22 58 18 50 28Z"/>
+    <g id="sl"><path d="M50 28C50 20 52 12 58 5" stroke="#4a2420" stroke-width="5" stroke-linecap="round" fill="none"/><path d="M55 17C60 3 77 3 84 10C77 24 62 25 55 17Z" style="fill:var(--tropicana)"/></g>
+  </defs>
+  <symbol id="apple-solid" viewBox="0 0 100 100"><use href="#ab" style="fill:var(--senga-sengana)"/><ellipse cx="29" cy="48" rx="5" ry="11" transform="rotate(-18 29 48)" fill="#fff" opacity=".55"/><use href="#sl"/></symbol>
+  <symbol id="apple-gingham" viewBox="0 0 100 100"><use href="#ab" fill="url(#gp)"/><use href="#sl"/></symbol>
+  <symbol id="apple-half" viewBox="0 0 100 100"><use href="#ab" style="fill:var(--senga-sengana)"/><use href="#ab" transform="translate(50 57) scale(.78) translate(-50 -57)" style="fill:var(--daisy-desi)"/><ellipse cx="43" cy="62" rx="3" ry="5" transform="rotate(-15 43 62)" fill="#4a2420"/><ellipse cx="57" cy="62" rx="3" ry="5" transform="rotate(15 57 62)" fill="#4a2420"/><use href="#sl"/></symbol>
+  <symbol id="flower" viewBox="0 0 40 40"><g style="fill:var(--mandarin)"><circle cx="20" cy="10" r="7"/><circle cx="29.5" cy="17" r="7"/><circle cx="26" cy="28" r="7"/><circle cx="14" cy="28" r="7"/><circle cx="10.5" cy="17" r="7"/></g><circle cx="20" cy="20" r="5" style="fill:var(--daisy-desi)"/></symbol>
+  <symbol id="ladybug" viewBox="0 0 40 40"><ellipse cx="20" cy="24" rx="14" ry="12" stroke="#FFF8E0" stroke-width="2.6" style="fill:var(--senga-sengana)"/><circle cx="20" cy="10" r="6" fill="#4a2420" stroke="#FFF8E0" stroke-width="2.6"/><ellipse cx="20" cy="24" rx="14" ry="12" style="fill:var(--senga-sengana)"/><circle cx="20" cy="10" r="5" fill="#4a2420"/><path d="M20 13V36" stroke="#4a2420" stroke-width="1.6"/><g fill="#4a2420"><circle cx="13" cy="22" r="2.4"/><circle cx="27" cy="22" r="2.4"/><circle cx="15" cy="30" r="2.4"/><circle cx="25" cy="30" r="2.4"/></g></symbol>
+  <symbol id="sprout" viewBox="0 0 40 40"><path d="M20 38V20" stroke="#4a2420" stroke-width="2.4" stroke-linecap="round" fill="none"/><path d="M20 22C8 22 6 10 8 8C20 8 22 14 20 22Z" style="fill:var(--kiwi-colada)"/><path d="M20 22C32 22 34 10 32 8C20 8 18 14 20 22Z" style="fill:var(--tropicana)"/></symbol>
+  <symbol id="clover" viewBox="0 0 40 40"><g style="fill:var(--tropicana)" opacity=".85"><circle cx="14" cy="14" r="7"/><circle cx="26" cy="14" r="7"/><circle cx="14" cy="26" r="7"/><circle cx="26" cy="26" r="7"/></g><path d="M20 20L26 38" stroke="#4a2420" stroke-width="2" fill="none"/></symbol>
+</svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs><linearGradient id="chrome" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff6cf"/><stop offset=".35" stop-color="#FEE08E"/><stop offset=".6" stop-color="#fff3c4"/><stop offset=".85" stop-color="#f0b24a"/><stop offset="1" stop-color="#ffe9a8"/></linearGradient></defs>
+  <symbol id="heart" viewBox="0 0 40 40"><path d="M20 35C6 25 3 16 8 10C12 5 18 7 20 12C22 7 28 5 32 10C37 16 34 25 20 35Z" style="fill:var(--vanilla-cream)" stroke="#493126" stroke-width="2.4" stroke-linejoin="round"/></symbol>
+  <symbol id="chrome-star" viewBox="0 0 100 100"><polygon points="50,6 61,38 95,38 68,58 79,92 50,71 21,92 32,58 5,38 39,38" fill="url(#chrome)" stroke="#c9902a" stroke-width="3" stroke-linejoin="round"/><polygon points="50,18 56,38 40,38" fill="#fff" opacity=".7"/></symbol>
+  <symbol id="chrome-sparkle" viewBox="0 0 100 100"><path d="M50 4C54 36 64 46 96 50C64 54 54 64 50 96C46 64 36 54 4 50C36 46 46 36 50 4Z" fill="url(#chrome)" stroke="#c9902a" stroke-width="3" stroke-linejoin="round"/></symbol>
+</svg>
+
+
+<!-- BACK TO PAGE 1 (the portfolio) -->
+<a class="back-link" href="index.html#more" aria-label="Back to my portfolio"><span aria-hidden="true">&lsaquo;</span> Portfolio</a>
+
+<!-- ================= MAIN PAGE ================= -->
+<main id="main">
+  <span class="strip" aria-hidden="true"></span>
+
+  <!-- page decorations (outside the frame) -->
+  <i class="bgstar" style="--s:14vw;--c:var(--kiwi-golada);--a:-10deg;top:-3%;left:-3%" aria-hidden="true"></i>
+  <i class="bgstar" style="--s:16vw;--c:var(--daisy-desi);--a:12deg;bottom:-5%;right:-3%" aria-hidden="true"></i>
+  <svg class="pg" style="--a:-12deg;left:1.5%;bottom:5%" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+  <svg class="pg" style="--a:14deg;right:1.5%;top:12%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+  <svg class="pg small" style="--a:8deg;left:3%;top:14%" aria-hidden="true"><use href="#apple-half" width="100%" height="100%"/></svg>
+  <svg class="pg small" style="--a:-6deg;right:4%;bottom:7%" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+
+  <div class="stage-wrap">
+    <div class="frame">
+      <h1 class="title">MORE ABOUT ME</h1>
+      <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span>
+      <span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+      <span class="washi wa" aria-hidden="true"></span><span class="washi wb" aria-hidden="true"></span>
+
+      <!-- decorations inside the frame: --w = size, --a = tilt; edit or delete freely -->
+      <svg class="dec hide-m" style="--w:8%;--a:-10deg;left:3%;top:27%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:7.5%;--a:14deg;left:58.5%;top:12%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec hide-m" style="--w:9%;--a:-8deg;left:87%;top:71%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec hide-m" style="--w:4.5%;left:5%;top:78%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+      <svg class="dec hide-m" style="--w:4%;--a:14deg;left:64%;top:78%" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+      <svg class="dec hide-m" style="--w:4.5%;left:62%;top:6%" aria-hidden="true"><use href="#sprout" width="100%" height="100%"/></svg>
+      <i class="sp hide-m" style="--w:2.6%;--c:var(--kiwi-golada);--a:15deg;left:9%;top:12%"></i>
+      <i class="sp four hide-m" style="--w:2.2%;--c:var(--tropicana);left:30%;top:6%"></i>
+      <i class="sp hide-m" style="--w:2%;--c:var(--mandarin);--a:-12deg;left:90%;top:50%"></i>
+      <i class="sp four hide-m" style="--w:2.4%;--c:var(--kiwi-golada);left:29%;top:88%"></i>
+      <span class="pencil pa hide-m" aria-hidden="true"></span>
+      <span class="pencil pb hide-m" aria-hidden="true"></span>
+
+      <!-- OBJECT 1: SKETCHBOOK -->
+      <button type="button" class="obj sketchbook" data-open="sketchbook" aria-label="Open the sketchbook" style="--r:-2deg;--d:.05s">
+        <span class="sb-tape" aria-hidden="true"></span>
+        <span class="sb-cover" aria-hidden="true">
+          <span class="sb-band"></span>
+          <span class="sb-slot sq"><svg class="ic"><use href="#apple-solid" width="100%" height="100%"/></svg></span>
+          <span class="sb-slot heart"><svg class="ic"><use href="#heart" width="100%" height="100%"/></svg></span>
+          <span class="sb-slot circle"><svg class="ic"><use href="#flower" width="100%" height="100%"/></svg></span>
+          <span class="sb-slot sq"><svg class="ic"><use href="#apple-half" width="100%" height="100%"/></svg></span>
+        </span>
+        <span class="tip">Sketchbook</span>
+      </button>
+
+      <!-- OBJECT 2: CAMERA -->
+      <button type="button" class="obj camera" data-open="camera" aria-label="Open the camera" style="--r:-8deg;--d:.15s">
+        <span class="cm-body" aria-hidden="true">
+          <span class="cm-vf"></span><span class="cm-flash"></span><span class="cm-shutter"></span>
+          <span class="cm-lens"><i></i></span><span class="cm-brand">snap</span><span class="cm-grip"></span><svg class="ic cm-stick"><use href="#apple-solid" width="100%" height="100%"/></svg>
+        </span>
+        <svg class="chrome cs1" aria-hidden="true"><use href="#chrome-star" width="100%" height="100%"/></svg>
+        <svg class="chrome cs2" aria-hidden="true"><use href="#chrome-sparkle" width="100%" height="100%"/></svg>
+        <span class="tip">Camera</span>
+      </button>
+
+      <!-- OBJECT 3: TABLET -->
+      <button type="button" class="obj tablet" data-open="tablet" aria-label="Open the tablet" style="--r:0deg;--d:.25s">
+        <span class="tb-case" aria-hidden="true"></span>
+        <span class="tb-body" aria-hidden="true">
+          <span class="tb-dot"></span>
+          <span class="tb-screen"><svg class="ic"><use href="#apple-half" width="100%" height="100%"/></svg></span>
+          <span class="tb-bar"></span>
+        </span>
+        <svg class="ic tb-stick" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+        <svg class="ic tb-stick2" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+        <span class="tip">Tablet</span>
+      </button>
+
+      <!-- OBJECT 4: LONG POLAROID -->
+      <button type="button" class="obj pol-obj" data-open="polaroid" aria-label="Open the Polaroid gallery" style="--r:12deg;--d:.35s">
+        <span class="pl-tape" aria-hidden="true"></span>
+        <span class="pl-paper" aria-hidden="true">
+          <span class="pl-photo"><svg class="ic a"><use href="#apple-gingham" width="100%" height="100%"/></svg><svg class="ic b"><use href="#flower" width="100%" height="100%"/></svg></span>
+          <span class="pl-cap">my photos</span>
+        </span>
+        <span class="tip">Polaroids</span>
+      </button>
+    </div>
+    <p class="hint">Tap or click an object to open it</p>
+  </div>
+</main>
+
+<!-- ================= VIEW 1: SKETCHBOOK ================= -->
+<section class="view v-sketch" id="view-sketchbook" role="dialog" aria-modal="true" aria-label="Sketchbook" hidden>
+  <button type="button" class="close" data-close aria-label="Close the sketchbook">&lt;</button>
+  <div class="view-body">
+    <div class="book">
+      <span class="washi bw1" aria-hidden="true"></span><span class="washi bw2" aria-hidden="true"></span>
+      <div class="ribbon" aria-hidden="true"></div>
+      <div class="pages" id="sk-pages">
+        <figure class="bk-page left pf contain" id="page-left"><img alt=""><div class="ph">Insert your photo here</div><div class="endmark"><svg class="ic"><use href="#apple-half" width="100%" height="100%"/></svg><span>The end</span></div><span class="pgnum"></span></figure>
+        <figure class="bk-page right pf contain" id="page-right"><img alt=""><div class="ph">Insert your photo here</div><div class="endmark"><svg class="ic"><use href="#apple-half" width="100%" height="100%"/></svg><span>The end</span></div><span class="pgnum"></span></figure>
+        <span class="spine" aria-hidden="true"></span>
+        <!-- the page that turns (its front is the old page, its back is the new page) -->
+        <div class="leaf" id="leaf" hidden>
+          <figure class="face front pf contain" id="leaf-front"><img alt=""><div class="ph">Insert your photo here</div><div class="endmark"><svg class="ic"><use href="#apple-half" width="100%" height="100%"/></svg><span>The end</span></div><span class="pgnum"></span></figure>
+          <figure class="face rear pf contain" id="leaf-back"><img alt=""><div class="ph">Insert your photo here</div><div class="endmark"><svg class="ic"><use href="#apple-half" width="100%" height="100%"/></svg><span>The end</span></div><span class="pgnum"></span></figure>
+        </div>
+      </div>
+      <svg class="dec" style="--w:9cqw;--a:14deg;right:-3.4cqw;top:-4.2cqw" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:8cqw;--a:-10deg;left:-3.6cqw;bottom:-3.2cqw" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:4cqw;--a:-18deg;left:4cqw;top:-2.6cqw" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:4.4cqw;right:3cqw;bottom:-3.2cqw" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:6.5cqw;--a:-12deg;left:-4.4cqw;top:22cqw" aria-hidden="true"><use href="#apple-gingham" width="100%" height="100%"/></svg>
+      <i class="sp" style="--w:2.6cqw;--c:var(--kiwi-golada);--a:12deg;right:-3cqw;top:26cqw"></i>
+      <i class="sp four" style="--w:2.4cqw;--c:var(--daisy-desi);left:-2.4cqw;bottom:20cqw"></i>
+    </div>
+    <div class="controls">
+      <button type="button" class="btn" id="sk-prev" aria-label="Previous page">&#8249; Previous</button>
+      <span class="count" id="sk-count" aria-live="polite">Pages 1&ndash;2 of 8</span>
+      <button type="button" class="btn" id="sk-next" aria-label="Next page">Next &#8250;</button>
+    </div>
+  </div>
+</section>
+<!-- ================= VIEW 2: CAMERA ================= -->
+<section class="view v-camera" id="view-camera" role="dialog" aria-modal="true" aria-label="Camera" hidden>
+  <button type="button" class="close" data-close aria-label="Close the camera">&lt;</button>
+  <div class="view-body">
+    <h2 class="cam-title">Unforgettable Memories</h2>
+    <div class="cam">
+      <svg class="strap" viewBox="0 0 100 22" aria-hidden="true"><path d="M9 22C9 -3 91 -3 91 22" fill="none" stroke="#493126" stroke-width="4.4" stroke-linecap="round"/><path d="M9 22C9 -3 91 -3 91 22" fill="none" stroke="url(#gp)" stroke-width="3.4" stroke-linecap="round"/></svg>
+      <div class="cam-body">
+        <button type="button" class="shutter" id="shutter" aria-label="Shutter: capture the current photo" title="Shutter"></button>
+        <span class="vf" aria-hidden="true"><i></i><i></i></span>
+        <span class="lamp" id="lamp" aria-hidden="true"></span>
+        <span class="brand" aria-hidden="true">snap</span>
+        <svg class="dec cam-stick" style="--w:7.5%;--a:10deg;left:57.5%;top:5%" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+        <span class="switch" aria-hidden="true"></span>
+        <span class="grip" aria-hidden="true"></span>
+        <div class="lcd">
+          <div class="lcd-screen pf contain" id="cam-frame">
+            <img alt=""><div class="ph">Insert your photo here</div>
+            <span class="osd" id="cam-count">1/3</span>
+            <span class="captured" id="captured">Captured!</span>
+            <span class="flash"></span>
+          </div>
+        </div>
+        <span class="cbtn menu" aria-hidden="true"></span>
+        <span class="speaker" aria-hidden="true"></span>
+        <div class="dial">
+          <button type="button" class="dial-btn l" id="cam-prev" aria-label="Previous photo">&#9664;</button>
+          <button type="button" class="dial-btn r" id="cam-next" aria-label="Next photo">&#9654;</button>
+          <span class="dial-mid" aria-hidden="true"><svg class="ic"><use href="#apple-solid" width="100%" height="100%"/></svg></span>
+        </div>
+        <span class="cbtn low1" aria-hidden="true"></span><span class="cbtn low2" aria-hidden="true"></span>
+      </div>
+      <svg class="chrome c1" aria-hidden="true"><use href="#chrome-star" width="100%" height="100%"/></svg>
+      <svg class="chrome c2" aria-hidden="true"><use href="#chrome-sparkle" width="100%" height="100%"/></svg>
+      <svg class="chrome c3" aria-hidden="true"><use href="#chrome-star" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:9%;--a:12deg;right:-5%;top:-14%" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:5%;left:-3%;top:46%" aria-hidden="true"><use href="#clover" width="100%" height="100%"/></svg>
+    </div>
+    <p class="view-hint">Use the dial arrows (or your keyboard arrows) to browse, and press the shutter!</p>
+  </div>
+</section>
+<!-- ================= VIEW 3: TABLET ================= -->
+<section class="view v-tablet" id="view-tablet" role="dialog" aria-modal="true" aria-label="Tablet gallery" hidden>
+  <button type="button" class="close" data-close aria-label="Close the tablet">&lt;</button>
+  <div class="view-body">
+    <div class="tablet-case">
+      <span class="washi wt1" aria-hidden="true"></span><span class="washi wt2" aria-hidden="true"></span>
+      <div class="tablet-big">
+        <span class="t-dot" aria-hidden="true"></span>
+        <div class="t-screen pf contain" id="tab-frame">
+          <img alt=""><div class="ph">Insert your photo here</div>
+          <button type="button" class="t-nav prev" id="tab-prev" aria-label="Previous photo">&#8249;</button>
+          <button type="button" class="t-nav next" id="tab-next" aria-label="Next photo">&#8250;</button>
+          <span class="t-count" id="tab-count" aria-live="polite">Photo 1 of 4</span>
+        </div>
+        <span class="t-bar" aria-hidden="true"></span>
+      </div>
+      <svg class="dec" style="--w:9cqw;--a:14deg;right:-4cqw;bottom:-4cqw" aria-hidden="true"><use href="#apple-solid" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:8cqw;--a:-10deg;left:-3.6cqw;bottom:6cqw" aria-hidden="true"><use href="#flower" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:3.8cqw;--a:16deg;right:4cqw;top:-2cqw" aria-hidden="true"><use href="#ladybug" width="100%" height="100%"/></svg>
+      <svg class="dec" style="--w:4.4cqw;left:6cqw;top:-3.2cqw" aria-hidden="true"><use href="#sprout" width="100%" height="100%"/></svg>
+      <i class="sp" style="--w:2.6cqw;--c:var(--kiwi-golada);--a:10deg;right:-2.6cqw;top:18cqw"></i>
+      <i class="sp four" style="--w:2.4cqw;--c:var(--mandarin);left:-2.4cqw;top:24cqw"></i>
+    </div>
+    <p class="view-hint">Double-tap (or double-click) a photo to see it full size.</p>
+  </div>
+</section>
+<!-- ================= VIEW 4: POLAROIDS ================= -->
+<section class="view v-polaroid" id="view-polaroid" role="dialog" aria-modal="true" aria-label="Polaroid gallery" hidden>
+  <button type="button" class="close" data-close aria-label="Close the Polaroid gallery">&lt;</button>
+  <div class="view-body">
+    <div class="pol-wrap">
+      <button type="button" class="pol-arrow prev" id="pol-prev" aria-label="Previous Polaroid">&#8249;</button>
+      <div class="pol-track" id="pol-track"></div>
+      <button type="button" class="pol-arrow next" id="pol-next" aria-label="Next Polaroid">&#8250;</button>
+    </div>
+    <div class="controls"><span class="count" id="pol-count" aria-live="polite">1 / 4</span></div>
+    <p class="view-hint">Double-click a Polaroid to see it full size (just tap it on a phone).</p>
+  </div>
+</section>
+
+<!-- ================= FULL-SIZE PHOTO VIEWER ================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Full size photo" hidden>
+  <button type="button" class="lb-close" id="lb-close" aria-label="Close the full size photo">&times;</button>
+  <div class="lb-stage"><div class="pf contain lb-frame" id="lb-frame"><img alt=""><div class="ph">Insert your photo here</div></div></div>
+</div>
+
+<script src="More-About-Me.js"></script>
+</body>
+</html>s
